@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Product;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -11,7 +12,7 @@ use app\models\ContactForm;
 
  class SiteController extends Controller{
 
-     public $layout = 'custom';
+     //public $layout = 'custom';
 
     /**
      * @inheritdoc
@@ -68,10 +69,14 @@ use app\models\ContactForm;
 
     public function actionTest(){
 
-        return $this->render('test',[
+        echo "<pre>";
+        $model = Product::findOne(3);
+        var_dump($model->type);die();
+
+        /*return $this->render('test',[
             'title' => 'Lesson 2',
             'content' => 'Hello wo1rld!'
-        ]);
+        ]);*/
 
     }
 
