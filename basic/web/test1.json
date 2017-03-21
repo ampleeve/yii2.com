@@ -1,0 +1,37 @@
+<script id="credit-cash-percent-rates-info" type="application/json">
+{
+"boss": {
+"amounts": [
+{ "max-amount": "до 250 000 ", "min-amount": "от 50 000 ", "percent": "16,99—25,99%" }
+,
+{ "max-amount": "до 700 000 ", "min-amount": "от 250 001 ", "percent": "15,99—22,991%" }
+,
+{ "max-amount": "до 1 500 000 ", "min-amount": "от 700 001 ", "percent": "13,99—22,99%" }
+],
+"max-period": 5,
+"min-period": 1
+},
+"corporate": {
+"amounts": [
+{ "max-amount": "до 250 000 ", "min-amount": "от 50 000 ", "percent": "14,99—25,99%" }
+,
+{ "max-amount": "до 700 000 ", "min-amount": "от 250 001 ", "percent": "13,99—21,99%" }
+,
+{ "max-amount": "до 2 000 000 ", "min-amount": "от 700 001 ", "percent": "11,99—21,99%" }
+],
+"max-period": 5,
+"min-period": 1
+},
+"individual": {
+"amounts": [
+{ "max-amount": "до 250 000 ", "min-amount": "от 50 000 ", "percent": "16,99—25,99%" }
+,
+{ "max-amount": "до 700 000 ", "min-amount": "от 250 001 ", "percent": "15,99—22,99%" }
+,
+{ "max-amount": "до 1 000 000 ", "min-amount": "от 700 001 ", "percent": "13,99—22,99%" }
+],
+"max-period": 3,
+"min-period": 1
+}
+}
+</script>

@@ -10,30 +10,19 @@ namespace app\models;
     public $authKey;
     public $accessToken;
 
-    private static $users = [
-        '100' => [
-            'id' => '100',
-            'username' => 'admin',
-            'password' => 'admin',
-            'authKey' => 'test100key',
-            'accessToken' => '100-token',
-        ],
-        '101' => [
-            'id' => '101',
-            'username' => 'demo',
-            'password' => 'demo',
-            'authKey' => 'test101key',
-            'accessToken' => '101-token',
-        ],
-    ];
-
 
     /**
      * @inheritdoc
      */
-    public static function findIdentity($id)
-    {
-        return isset(self::$users[$id]) ? new static(self::$users[$id]) : null;
+    public static function findIdentity($id){
+
+        if($user = Customer::findOne($id)){
+
+            return new static($user->toArray());
+
+        }
+
+        return null;
     }
 
     /**
@@ -58,12 +47,10 @@ namespace app\models;
      */
     public static function findByUsername($username){
 
-        self::$users = Customer::findAll(['username' => $username]);
+        if($user = Customer::findOne(['username' => $username])){
 
-        foreach (self::$users as $user) {
-            if (strcasecmp($user['username'], $username) === 0) {
-                return new static($user);
-            }
+            return new static($user->toArray());
+
         }
 
         return null;
@@ -100,7 +87,7 @@ namespace app\models;
      * @return bool if password provided is valid for current user
      */
     public function validatePassword($password){
-        //echo "<pre>";var_dump($this->password);die();
-        return $this->password === $password;
+
+        return $this->password === md5($password);
     }
  }
