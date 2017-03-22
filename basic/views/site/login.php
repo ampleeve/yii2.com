@@ -40,6 +40,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php ActiveForm::end(); ?>
 
+    <p>Or <a href="http://yii2.com/index.php?r=site/registration">registration</a></p>
+
     <div class="col-lg-offset-1" style="color:#999;">
         You may login with <strong>admin/admin</strong> or <strong>demo/demo</strong>.<br>
         To modify the username/password, please check out the code <code>app\models\User::$users</code>.
