@@ -1,15 +1,28 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: evgenijampleev
- * Date: 22.03.17
- * Time: 13:11
- */
-
 namespace app\models;
+use yii\base\Model;
 
+ class Test extends Model{
 
-class Test
-{
+     public $title;
+     public $content;
+     public $date;
 
-}
+     public function attributeLabels(){
+
+        return [
+
+          'title' => 'заголовок'
+
+        ];
+     }
+
+     public function rules(){
+
+         return [
+
+             [['title', 'content', 'date'], 'required']
+         ];
+     }
+
+ }

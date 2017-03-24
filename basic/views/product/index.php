@@ -7,6 +7,8 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\ProductSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
+//echo "<pre>";var_dump($model);die();
+
 $this->title = 'Products';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -18,22 +20,45 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Create Product', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-    <?= GridView::widget([
+    <?
+
+    /*$dataProvider = new \yii\data\ActiveDataProvider([
+
+            'query' => \app\models\Product::find()
+    ]);
+
+    echo \yii\widgets\ListView::widget([
+
+        'dataProvider' => $dataProvider,
+        'itemView' => 'view',
+        'viewParams' => [
+
+                'hideBreadcrumbs' => true
+
+        ]
+
+
+    ]);*/
+
+
+    echo
+    GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             'id',
             'name',
             'brandID',
             'typeID',
             'categoryID',
-            // 'price',
-            // 'vendorCode',
-            // 'description',
+            'price',
+            'vendorCode',
+            'description',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
-    ]); ?>
+    ]);
+
+     ?>
 </div>

@@ -7,8 +7,11 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Product */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+if(!$hideBreadcrumbs){
+    $this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];
+    $this->params['breadcrumbs'][] = $this->title;
+}
+
 ?>
 <div class="product-view">
 
@@ -29,13 +32,16 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'name',
+            [
+                    'label' => 'Имя',
+                    'value' => function($model){return mb_substr($model->name, 0, 5);}
+            ],
             'brandID',
             'typeID',
             'categoryID',
             'price',
             'vendorCode',
-            'description',
+            'description:html',
         ],
     ]) ?>
 
