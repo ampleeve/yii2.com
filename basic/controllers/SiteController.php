@@ -99,9 +99,11 @@ use app\models\ContactForm;
 
          $model = new RegistrationForm();
 
-         if($model->load(Yii::$app->request->post('Registration'),'')){
+         if($model->load(Yii::$app->request->post(),'')){
 
-              echo "<pre>";var_dump($model);die();
+             echo "<pre>";
+             var_dump($model->load(Yii::$app->request->post('registration')));
+             die();
 
          }
 
