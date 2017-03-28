@@ -64,4 +64,5 @@ class Customer extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Sessions::className(), ['userID' => 'id']);
     }
+
 }

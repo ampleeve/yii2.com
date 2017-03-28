@@ -95,25 +95,17 @@ use app\models\ContactForm;
 
     }
 
+     /**
+      * @return string
+      */
      public function actionRegistration(){
 
          $model = new RegistrationForm();
+         if($model->load(Yii::$app->request->post()) && $model->registration()){
 
-         if($model->load(Yii::$app->request->post(),'')){
-
-             echo "<pre>";
-             var_dump($model->load(Yii::$app->request->post('registration')));
-             die();
+             return $this->redirect('/');
 
          }
-
-         $model = new RegistrationForm();
-
-         return $this->render('registration', [
-
-             'model' => $model
-
-         ]);
 
      }
 

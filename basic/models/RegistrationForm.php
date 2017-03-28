@@ -1,6 +1,7 @@
 <?php
 namespace app\models;
 use yii\base\Model;
+use Yii;
 
 /**
  * Class RegistrationForm
@@ -12,6 +13,8 @@ class RegistrationForm extends Model{
     public $phone;
     public $pass1;
     public $pass2;
+
+    private $_user = false;
 
     public function attributeLabels(){
 
@@ -33,20 +36,42 @@ class RegistrationForm extends Model{
         ];
     }
 
+    public function registration(){
+
+        if ($this->validate() && !$this->checkUser()){
+
+            $customer = new Customer;
+            $customer->username = $this->username;
+            $customer->phone = $this->phone;
+            $customer->password = md5($this->pass1);
+            $customer->save();
+            return true;
+
+        }
+
+        return false;
+    }
+
     public function validatePassword($attribute, $params){
-        //echo "<pre>";var_dump($this->pass1);die();
+
         if (!$this->hasErrors()){
             if($this->pass1 != $this->pass2){
                 $this->addError($attribute, 'Passwords are not equel');
             }
         }
-        /*if (!$this->hasErrors()) {
-            $user = $this->getUser();
+    }
 
-            if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError($attribute, 'Incorrect username or password.');
-            }
-        }*/
+    public function checkUser(){
+
+        if(User::findByUsername($this->username)){
+
+            $this->addError($this->username, 'User is already exist');
+            return true;
+
+        }
+
+        return false;
+
     }
 
 }

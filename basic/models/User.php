@@ -90,4 +90,13 @@ namespace app\models;
 
         return $this->password === md5($password);
     }
+
+     public function createNew($user){
+         if($user = Customer::findOne(['username' => $username])){
+
+             return new static($user->toArray());
+
+         }
+
+     }
  }
