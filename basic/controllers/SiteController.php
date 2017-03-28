@@ -3,6 +3,8 @@
 namespace app\controllers;
 
 use app\models\Product;
+use app\models\RegistrationForm;
+use app\models\Test;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -69,16 +71,43 @@ use app\models\ContactForm;
 
     public function actionTest(){
 
-        echo "<pre>";
-        $model = Product::findOne(3);
-        var_dump($model->type);die();
+        $model = new Test();
 
-        /*return $this->render('test',[
-            'title' => 'Lesson 2',
-            'content' => 'Hello wo1rld!'
-        ]);*/
+        if($model->load(Yii::$app->request->post('Test'),'')){
+
+           // echo "<pre>";var_dump($model);die();
+
+        }
+
+        $model = new Test([
+
+            'title' => 'myTitle',
+            'content' => 'Lesson 3',
+            'date' => date('H:i:s')
+
+        ]);
+
+        return $this->render('test', [
+
+            'model' => $model
+
+        ]);
 
     }
+
+     /**
+      * @return string
+      */
+     public function actionRegistration(){
+
+         $model = new RegistrationForm();
+         if($model->load(Yii::$app->request->post()) && $model->registration()){
+
+             return $this->redirect('/');
+
+         }
+
+     }
 
     /**
      * Login action.
