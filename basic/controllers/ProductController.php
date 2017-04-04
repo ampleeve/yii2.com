@@ -44,15 +44,31 @@ class ProductController extends Controller
         ]);
     }
 
+    public function actionAdminindex()
+    {
+        $searchModel = new ProductSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('adminindex', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
     /**
      * Displays a single Product model.
      * @param integer $id
      * @return mixed
      */
-    public function actionView($id)
-    {
-        return $this->render('view', [
+    public function actionView($id){
+        //echo "<pre>";
+        //var_dump(1);
+        //die();
+        return $this->render('publicview', [
             'model' => $this->findModel($id),
+            'viewParams' => [
+                'hideBreadcrumbs' => true
+            ]
         ]);
     }
 

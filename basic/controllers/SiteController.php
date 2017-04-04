@@ -114,8 +114,8 @@ use app\models\ContactForm;
      *
      * @return string
      */
-    public function actionLogin()
-    {
+    public function actionLogin(){
+
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -134,8 +134,8 @@ use app\models\ContactForm;
      *
      * @return string
      */
-    public function actionLogout()
-    {
+    public function actionLogout(){
+
         Yii::$app->user->logout();
 
         return $this->goHome();
@@ -146,8 +146,8 @@ use app\models\ContactForm;
      *
      * @return string
      */
-    public function actionContact()
-    {
+    public function actionContact(){
+
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
             Yii::$app->session->setFlash('contactFormSubmitted');
@@ -164,8 +164,8 @@ use app\models\ContactForm;
      *
      * @return string
      */
-    public function actionAbout()
-    {
+    public function actionAbout(){
+
         return $this->render('about');
     }
  }
