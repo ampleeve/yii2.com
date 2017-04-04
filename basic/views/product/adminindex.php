@@ -17,34 +17,31 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
+    <p>
+        <?= Html::a('Create Product', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
     <?
 
-        //echo "<pre>";
-        //var_dump(\app\models\Product::find());
-        //die();
-
-        $dataProvider = new \yii\data\ActiveDataProvider([
+    /*$dataProvider = new \yii\data\ActiveDataProvider([
 
             'query' => \app\models\Product::find()
+    ]);
 
-        ]);
+    echo \yii\widgets\ListView::widget([
 
-        echo
-        \yii\widgets\ListView::widget([
+        'dataProvider' => $dataProvider,
+        'itemView' => 'view',
+        'viewParams' => [
 
-            'dataProvider' => $dataProvider,
-            'itemView' => 'publicviewlist',
-            'viewParams' => [
+                'hideBreadcrumbs' => true
 
-                    'hideBreadcrumbs' => true
-
-            ]
-        ]);
+        ]
 
 
+    ]);*/
 
 
-    /*
+    echo
     GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -62,9 +59,6 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]);
-
-     */
-
 
     ?>
 </div>
