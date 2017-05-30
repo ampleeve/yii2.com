@@ -168,4 +168,10 @@ use app\models\ContactForm;
 
         return $this->render('about');
     }
+
+    public function actionAdmin(){
+
+        $this->redirect('?r=product/adminindex');
+
+    }
  }
