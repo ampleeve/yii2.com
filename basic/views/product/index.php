@@ -19,10 +19,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?
 
-        //echo "<pre>";
-        //var_dump(\app\models\Product::find());
-        //die();
-
         $dataProvider = new \yii\data\ActiveDataProvider([
 
             'query' => \app\models\Product::find()
