@@ -21,7 +21,7 @@ AppAsset::register($this);
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/manifest.json">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ff00e6">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ff00c7">
     <meta name="theme-color" content="#ffffff">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
