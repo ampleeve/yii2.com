@@ -7,7 +7,7 @@ use yii\helpers\Url;
 /* @var $model app\models\Product */
 
 $this->title = $model->name;
-$url = 'http://yii2.com/index.php?r=product/view&id='. $model->id;
+$url = '/index.php?r=product/view&id='. $model->id;
 
 ?>
 <div class="product-view">
