@@ -102,10 +102,11 @@ use app\models\ContactForm;
 
          $model = new RegistrationForm();
          if($model->load(Yii::$app->request->post()) && $model->registration()){
-
              return $this->redirect('/');
-
          }
+         return $this->render('registration', [
+             'model' => $model,
+         ]);
 
      }
 
