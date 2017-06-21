@@ -7,16 +7,18 @@ use yii\helpers\Html;
 
 
 
-phpinfo();
+//phpinfo();
 
-echo \yii\jui\DatePicker::widget([
+/*echo \yii\jui\DatePicker::widget([
 
     'model' => \app\models\Test::className(),
-    'attribute' => 'content'
+    'attribute' => 'content',
+    'dateFormat' => 'dd-MM-yyyy',
+    'language' => 'ru'
 
-]);
+]);*/
 
-  /*  $form = ActiveForm::begin([
+    $form = ActiveForm::begin([
 
         'id' => 'testForm',
 
@@ -24,10 +26,13 @@ echo \yii\jui\DatePicker::widget([
 
     echo $form->field($model, 'title')->textInput();
     echo $form->field($model, 'content')->textInput();
-    echo $form->field($model, 'date')->dropDownList(['1','2']);
+    echo $form->field($model, 'date')->widget(\yii\jui\DatePicker::className(),[
+        'dateFormat' => 'dd-MM-yyyy',
+        'language' => 'ru'
+    ]);
 
     echo Html::submitButton();
 
-    $form->end();*/
+    $form->end();
 
 ?>
