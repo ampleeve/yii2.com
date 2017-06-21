@@ -54,8 +54,8 @@ use yii\validators\Validator;
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
- class Model extends Component implements IteratorAggregate, ArrayAccess, Arrayable{
-
+class Model extends Component implements IteratorAggregate, ArrayAccess, Arrayable
+{
     use ArrayableTrait;
 
     /**
@@ -334,8 +334,8 @@ use yii\validators\Validator;
      * @return bool whether the validation is successful without any error.
      * @throws InvalidParamException if the current scenario is unknown.
      */
-    public function validate($attributeNames = null, $clearErrors = true){
-
+    public function validate($attributeNames = null, $clearErrors = true)
+    {
         if ($clearErrors) {
             $this->clearErrors();
         }
@@ -424,7 +424,7 @@ use yii\validators\Validator;
         $validators = [];
         $scenario = $this->getScenario();
         foreach ($this->getValidators() as $validator) {
-            if ($validator->isActive($scenario) && ($attribute === null || in_array($attribute, $validator->attributes, true))) {
+            if ($validator->isActive($scenario) && ($attribute === null || in_array($attribute, $validator->getAttributeNames(), true))) {
                 $validators[] = $validator;
             }
         }
@@ -635,8 +635,8 @@ use yii\validators\Validator;
      * Removes errors for all attributes or a single attribute.
      * @param string $attribute attribute name. Use null to remove errors for all attributes.
      */
-    public function clearErrors($attribute = null){
-
+    public function clearErrors($attribute = null)
+    {
         if ($attribute === null) {
             $this->_errors = [];
         } else {
@@ -849,7 +849,7 @@ use yii\validators\Validator;
     public static function loadMultiple($models, $data, $formName = null)
     {
         if ($formName === null) {
-            /* @var $first Model */
+            /* @var $first Model|false */
             $first = reset($models);
             if ($first === false) {
                 return false;
@@ -861,12 +861,10 @@ use yii\validators\Validator;
         foreach ($models as $i => $model) {
             /* @var $model Model */
             if ($formName == '') {
-                if (!empty($data[$i])) {
-                    $model->load($data[$i], '');
+                if (!empty($data[$i]) && $model->load($data[$i], '')) {
                     $success = true;
                 }
-            } elseif (!empty($data[$formName][$i])) {
-                $model->load($data[$formName][$i], '');
+            } elseif (!empty($data[$formName][$i]) && $model->load($data[$formName][$i], '')) {
                 $success = true;
             }
         }
@@ -1005,4 +1003,4 @@ use yii\validators\Validator;
     {
         $this->$offset = null;
     }
- }
+}

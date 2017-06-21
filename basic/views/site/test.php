@@ -4,7 +4,17 @@ use yii\helpers\Html;
 /** @var \app\models\Test $model */
 //echo "<pre>";var_dump($model);die();
 
-    $form = ActiveForm::begin([
+
+
+
+echo \yii\jui\DatePicker::widget([
+
+    'model' => \app\models\Test::className(),
+    'attribute' => 'content'
+
+]);
+
+  /*  $form = ActiveForm::begin([
 
         'id' => 'testForm',
 
@@ -16,6 +26,6 @@ use yii\helpers\Html;
 
     echo Html::submitButton();
 
-    $form->end();
+    $form->end();*/
 
 ?>

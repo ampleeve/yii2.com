@@ -19,7 +19,8 @@ use yii\helpers\Url;
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
- class Controller extends \yii\base\Controller{
+class Controller extends \yii\base\Controller
+{
     /**
      * @var bool whether to enable CSRF validation for the actions in this controller.
      * CSRF validation is enabled only when both this property and [[\yii\web\Request::enableCsrfValidation]] are true.
@@ -166,7 +167,7 @@ use yii\helpers\Url;
             }
             return true;
         }
-        
+
         return false;
     }
 
@@ -188,8 +189,8 @@ use yii\helpers\Url;
      * - an array in the format of `[$route, ...name-value pairs...]` (e.g. `['site/index', 'ref' => 1]`)
      *   [[Url::to()]] will be used to convert the array into a URL.
      *
-     * Any relative URL will be converted into an absolute one by prepending it with the host info
-     * of the current request.
+     * Any relative URL that starts with a single forward slash "/" will be converted
+     * into an absolute one by prepending it with the host info of the current request.
      *
      * @param int $statusCode the HTTP status code. Defaults to 302.
      * See <http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html>
@@ -236,8 +237,8 @@ use yii\helpers\Url;
      * @return Response the current response object
      * @see User::getReturnUrl()
      */
-    public function goBack($defaultUrl = null){
-        //echo "<pre>";var_dump(Yii::$app->getUser()->getReturnUrl());die();
+    public function goBack($defaultUrl = null)
+    {
         return Yii::$app->getResponse()->redirect(Yii::$app->getUser()->getReturnUrl($defaultUrl));
     }
 
@@ -260,4 +261,4 @@ use yii\helpers\Url;
     {
         return Yii::$app->getResponse()->redirect(Yii::$app->getRequest()->getUrl() . $anchor);
     }
- }
+}

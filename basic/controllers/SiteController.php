@@ -7,6 +7,7 @@ use app\models\RegistrationForm;
 use app\models\Test;
 use Yii;
 use yii\filters\AccessControl;
+use yii\jui\DatePicker;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
@@ -71,9 +72,11 @@ use app\models\ContactForm;
 
     public function actionTest(){
 
-        $model = new Test();
+        return $this->render('test');
 
-        if($model->load(Yii::$app->request->post('Test'),'')){
+        /*
+         $model = new Test();
+          if($model->load(Yii::$app->request->post('Test'),'')){
 
            // echo "<pre>";var_dump($model);die();
 
@@ -91,7 +94,7 @@ use app\models\ContactForm;
 
             'model' => $model
 
-        ]);
+        ]);*/
 
     }
 

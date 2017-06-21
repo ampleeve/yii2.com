@@ -57,8 +57,8 @@ use yii\rbac\CheckAccessInterface;
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
- class User extends Component{
-
+class User extends Component
+{
     const EVENT_BEFORE_LOGIN = 'beforeLogin';
     const EVENT_AFTER_LOGIN = 'afterLogin';
     const EVENT_BEFORE_LOGOUT = 'beforeLogout';
@@ -253,14 +253,6 @@ use yii\rbac\CheckAccessInterface;
         return !$this->getIsGuest();
     }
 
-     public function registration($regForm){
-
-        echo "<pre>";
-        var_dump($regForm);
-        die();
-
-     }
-
     /**
      * Logs in a user by the given access token.
      * This method will first authenticate the user by calling [[IdentityInterface::findIdentityByAccessToken()]]
@@ -365,8 +357,8 @@ use yii\rbac\CheckAccessInterface;
      * @return string the URL that the user should be redirected to after login.
      * @see loginRequired()
      */
-    public function getReturnUrl($defaultUrl = null){
-
+    public function getReturnUrl($defaultUrl = null)
+    {
         $url = Yii::$app->getSession()->get($this->returnUrlParam, $defaultUrl);
         if (is_array($url)) {
             if (isset($url[0])) {
@@ -766,4 +758,4 @@ use yii\rbac\CheckAccessInterface;
     {
         return $this->accessChecker !== null ? $this->accessChecker : $this->getAuthManager();
     }
- }
+}
