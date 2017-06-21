@@ -7,6 +7,8 @@ use yii\helpers\Html;
 
 
 
+phpinfo();
+
 echo \yii\jui\DatePicker::widget([
 
     'model' => \app\models\Test::className(),
