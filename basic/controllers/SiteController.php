@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\components\actions\DemoAction;
 use app\models\Product;
 use app\models\RegistrationForm;
 use app\models\Test;
@@ -56,6 +57,10 @@ use app\models\ContactForm;
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
+            'demo' => [
+                'class' => DemoAction::className(),
+                'message' => 'Demo from siteController'
+            ]
         ];
     }
 
