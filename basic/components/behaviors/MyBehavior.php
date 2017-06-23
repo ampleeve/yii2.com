@@ -12,6 +12,8 @@ class MyBehavior extends \yii\base\Behavior{
 
     public function showMessage(){
         echo $this->message;
+        echo "<br>";
+        echo $this->owner->calculate();
     }
 
 }

@@ -15,6 +15,8 @@ use Yii;
  * @property string $price
  * @property string $vendorCode
  * @property string $description
+ * @property integer $created_at
+ * @property integer $updated_at
  *
  * @property OrderProduct[] $orderProducts
  * @property Order[] $orders

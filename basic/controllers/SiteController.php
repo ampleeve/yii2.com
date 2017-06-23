@@ -77,13 +77,15 @@ use app\models\ContactForm;
     }
 
     public function actionTest(){
-
-        return $this->render('test',[
-            'model' => new Test()
-        ]);
-
         $component = new MyComponent();
+        $component->a = 3;
+        $component->b = 4;
         $component->showMessage();
+        /*return $this->render('test',[
+            'model' => new Test()
+        ]);*/
+
+
 
         /*
          $model = new Test();
