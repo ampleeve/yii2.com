@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\components\actions\DemoAction;
+use app\components\MyComponent;
 use app\models\Product;
 use app\models\RegistrationForm;
 use app\models\Test;
@@ -80,6 +81,9 @@ use app\models\ContactForm;
         return $this->render('test',[
             'model' => new Test()
         ]);
+
+        $component = new MyComponent();
+        $component->showMessage();
 
         /*
          $model = new Test();
