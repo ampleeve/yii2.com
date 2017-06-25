@@ -12,13 +12,11 @@ use yii\filters\VerbFilter;
 /**
  * ProductController implements the CRUD actions for Product model.
  */
-class ProductController extends Controller
-{
+class ProductController extends Controller{
     /**
      * @inheritdoc
      */
-    public function behaviors()
-    {
+    public function behaviors(){
         return [
             'verbs' => [
                 'class' => VerbFilter::className(),
@@ -44,8 +42,7 @@ class ProductController extends Controller
         ]);
     }
 
-    public function actionAdminindex()
-    {
+    public function actionAdminindex(){
         $searchModel = new ProductSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -64,7 +61,7 @@ class ProductController extends Controller
         //echo "<pre>";
         //var_dump(1);
         //die();
-        return $this->render('publicview', [
+        return $this->render('view', [
             'model' => $this->findModel($id),
             'viewParams' => [
                 'hideBreadcrumbs' => true
