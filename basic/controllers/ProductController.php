@@ -62,7 +62,7 @@ class ProductController extends Controller{
         $cache = \Yii::$app->cache;
         //$cache->flush(); - очистка кеша, использовать один раз и комментить снова
 
-        $key = 'product';
+        $key = 'product' . $id;
 
         if(!$model = $cache->get($key)){
             $model = $this->findModel($id);
