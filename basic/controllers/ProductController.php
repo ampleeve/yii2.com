@@ -5,6 +5,8 @@ namespace app\controllers;
 use Yii;
 use app\models\Product;
 use app\models\ProductSearch;
+use yii\caching\DbDependency;
+use yii\caching\FileDependency;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -63,10 +65,14 @@ class ProductController extends Controller{
         //$cache->flush(); - очистка кеша, использовать один раз и комментить снова
 
         $key = 'product' . $id;
+        //$dependency = new FileDependency(['fileName' => 'test.txt']); // путь к файлу, который если изменится, то обновить кеш
+        $dependency = new DbDependency();
+        $dependency->sql = "SELECT COUNT(*) from product";
+
 
         if(!$model = $cache->get($key)){
             $model = $this->findModel($id);
-            $cache->set($key, $model, 100);
+            $cache->set($key, $model, 3500, $dependency);
         }
 
         return $this->render('publicview', [
