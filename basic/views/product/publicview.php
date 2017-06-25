@@ -13,21 +13,29 @@ $this->title = $model->name;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            [
-                'label' => 'Имя',
-                'value' => function($model){return mb_substr($model->name, 0, 5);}
+    <?php
+    $key = 'widget_' . $model->id;
+    if($this->beginCache($key,[
+            'duration' => 300
+    ])){
+        echo DetailView::widget([
+            'model' => $model,
+            'attributes' => [
+                'id',
+                [
+                    'label' => 'Имя',
+                    'value' => function($model){return mb_substr($model->name, 0, 5);}
+                ],
+                'brandID',
+                'typeID',
+                'categoryID',
+                'price',
+                'vendorCode',
+                'description:html',
             ],
-            'brandID',
-            'typeID',
-            'categoryID',
-            'price',
-            'vendorCode',
-            'description:html',
-        ],
-    ]) ?>
+        ]);
+        $this->endCache();
+    }
+    ?>
 
 </div>
