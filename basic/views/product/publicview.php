@@ -23,8 +23,7 @@ $this->title = $model->name;
             'attributes' => [
                 'id',
                 [
-                    'label' => 'Имя',
-                    'value' => function($model){return mb_substr($model->name, 0, 5);}
+                    'label' => 'Имя'
                 ],
                 'brandID',
                 'typeID',
