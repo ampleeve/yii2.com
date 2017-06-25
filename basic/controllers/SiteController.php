@@ -79,6 +79,7 @@ use app\models\ContactForm;
     public function actionTest(){
 
         $cache = \Yii::$app->cache;
+        $cache->flush();
 
         $key = 'number';
 
