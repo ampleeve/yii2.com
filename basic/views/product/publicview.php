@@ -14,7 +14,7 @@ $this->title = $model->name;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?php
-    $key = 'widget_' . $model->id;
+    $key = 'widget_' . $model->id; // кешируем часть интерфейса вместе со значениями (при этом та часть что в заголовке - не кешируется)
     if($this->beginCache($key,[
             'duration' => 300
     ])){
