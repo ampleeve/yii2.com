@@ -58,11 +58,19 @@ class ProductController extends Controller{
      * @return mixed
      */
     public function actionView($id){
-        //echo "<pre>";
-        //var_dump(1);
-        //die();
+
+        $cache = \Yii::$app->cache;
+        //$cache->flush(); - очистка кеша, использовать один раз и комментить снова
+
+        $key = 'product';
+
+        if(!$model = $cache->get($key)){
+            $model = $this->findModel($id);
+            $cache->set($key, $model, 100);
+        }
+
         return $this->render('publicview', [
-            'model' => $this->findModel($id),
+            'model' => $model,
             'viewParams' => [
                 'hideBreadcrumbs' => true
             ]
