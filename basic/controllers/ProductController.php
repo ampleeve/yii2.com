@@ -61,7 +61,7 @@ class ProductController extends Controller{
      */
     public function actionView($id){
 
-        $cache = \Yii::$app->cache;
+       /* $cache = \Yii::$app->cache;
         //$cache->flush(); - очистка кеша, использовать один раз и комментить снова
 
         $key = 'product' . $id;
@@ -73,10 +73,10 @@ class ProductController extends Controller{
         if(!$model = $cache->get($key)){
             $model = $this->findModel($id);
             $cache->set($key, $model, 3500, $dependency);// обновить кеш только если изменилось количество продуктов в бд или через 3500 сек
-        }
+        }*/
 
         return $this->render('publicview', [
-            'model' => $model,
+            'model' => $this->findModel($id),
             'viewParams' => [
                 'hideBreadcrumbs' => true
             ]
