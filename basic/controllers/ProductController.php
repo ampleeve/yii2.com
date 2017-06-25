@@ -67,12 +67,12 @@ class ProductController extends Controller{
         $key = 'product' . $id;
         //$dependency = new FileDependency(['fileName' => 'test.txt']); // путь к файлу, который если изменится, то обновить кеш
         $dependency = new DbDependency();
-        $dependency->sql = "SELECT COUNT(*) from product";
+        $dependency->sql = "SELECT COUNT(*) from product"; // обновить кеш только если изменилось количество продуктов в бд
 
 
         if(!$model = $cache->get($key)){
             $model = $this->findModel($id);
-            $cache->set($key, $model, 3500, $dependency);
+            $cache->set($key, $model, 3500, $dependency);// обновить кеш только если изменилось количество продуктов в бд или через 3500 сек
         }
 
         return $this->render('publicview', [
