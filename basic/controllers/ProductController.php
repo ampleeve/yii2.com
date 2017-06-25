@@ -61,8 +61,8 @@ class ProductController extends Controller{
      */
     public function actionView($id){
 
-       $cache = \Yii::$app->cache;
-       $cache->flush(); // очистка кеша, использовать один раз и комментить снова
+       //$cache = \Yii::$app->cache;
+       //$cache->flush(); // очистка кеша, использовать один раз и комментить снова
 /*
         $key = 'product' . $id;
         //$dependency = new FileDependency(['fileName' => 'test.txt']); // путь к файлу, который если изменится, то обновить кеш
