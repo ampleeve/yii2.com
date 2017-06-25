@@ -8,12 +8,14 @@ use yii\base\Model;
      public $content;
      public $date;
 
+     const EVENT_TEST = 'test';
+
      public function attributeLabels(){
 
         return [
-
-          'title' => 'заголовок'
-
+            'title' => 'заголовок',
+            'content' => 'контент',
+            'description' => 'описание',
         ];
      }
 
@@ -23,6 +25,13 @@ use yii\base\Model;
 
              [['title', 'content', 'date'], 'required']
          ];
+     }
+
+     public function getData(){
+
+         $this->trigger(self::EVENT_TEST);
+         return "123";
+
      }
 
  }

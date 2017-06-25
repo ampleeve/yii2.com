@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "product".
@@ -110,4 +111,22 @@ use Yii;
          return $this->hasOne(Type::className(), ['id' => 'typeID']);
 
      }
+
+     public function behaviors(){
+         return [
+             [
+                 'class' => TimestampBehavior::className()
+             ]
+         ];
+     }
+
+
+     /*public function save($runValidation = true, $attributeNames = null){
+         if($this->isNewRecord) {
+             $this->created_at = time();
+         }
+         $this->updated_at = time();
+     }*/
+
+
  }

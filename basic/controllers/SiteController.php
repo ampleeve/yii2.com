@@ -77,10 +77,29 @@ use app\models\ContactForm;
     }
 
     public function actionTest(){
-        $component = new MyComponent();
-        $component->a = 3;
-        $component->b = 4;
-        $component->showMessage();
+
+        $cache = \Yii::$app->cache;
+        $key = 'number';
+        if($cache->exists($key)){
+            echo "is cache";
+            $number = $cache->get($key);
+        }else{
+            $number = rand();
+            $cache->set($key, $number, 30);
+            echo "<pre>";
+            var_dump(\Yii::$app->cache);
+            echo "not cache";echo "<br>";
+        }
+        echo $number;
+
+        //$model = new Test();
+        //$model->on(Test::EVENT_TEST, [new MyComponent(), 'calculate']);
+        //$model->getData();
+
+        //$component = new MyComponent();
+        //$component->a = 3;
+        //$component->b = 4;
+        //$component->showMessage();
         /*return $this->render('test',[
             'model' => new Test()
         ]);*/

@@ -15,7 +15,8 @@ class MyComponent extends Component{
     public $b;
 
     public function calculate(){
-        return $this->a * $this->b;
+        echo 'Catch event!';
+        //return $this->a * $this->b;
     }
 
     public function behaviors(){
