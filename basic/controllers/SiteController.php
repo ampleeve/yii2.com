@@ -79,16 +79,12 @@ use app\models\ContactForm;
     public function actionTest(){
 
         $cache = \Yii::$app->cache;
+
         $key = 'number';
-        if($cache->exists($key)){
-            echo "is cache";
-            $number = $cache->get($key);
-        }else{
+
+        if(!$number = $cache->get($key)){
             $number = rand();
             $cache->set($key, $number, 30);
-            echo "<pre>";
-            var_dump(\Yii::$app->cache);
-            echo "not cache";echo "<br>";
         }
         echo $number;
 
