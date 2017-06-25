@@ -79,13 +79,13 @@ use app\models\ContactForm;
     public function actionTest(){
 
         $cache = \Yii::$app->cache;
-        $cache->flush();
+        //$cache->flush(); - очистка кеша, использовать один раз и комментить снова
 
         $key = 'number';
 
         if(!$number = $cache->get($key)){
             $number = rand();
-            $cache->set($key, $number, 30);
+            $cache->set($key, $number, 5);
         }
         echo $number;
 
