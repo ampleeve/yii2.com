@@ -22,9 +22,7 @@ $this->title = $model->name;
             'model' => $model,
             'attributes' => [
                 'id',
-                [
-                    'label' => 'Имя'
-                ],
+                'name',
                 'brandID',
                 'typeID',
                 'categoryID',
