@@ -61,7 +61,7 @@ class ProductController extends Controller{
         //echo "<pre>";
         //var_dump(1);
         //die();
-        return $this->render('view', [
+        return $this->render('publicview', [
             'model' => $this->findModel($id),
             'viewParams' => [
                 'hideBreadcrumbs' => true
