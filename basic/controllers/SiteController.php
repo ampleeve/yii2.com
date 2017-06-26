@@ -9,6 +9,7 @@ use app\models\RegistrationForm;
 use app\models\Test;
 use Yii;
 use yii\filters\AccessControl;
+use yii\imagine\Image;
 use yii\jui\DatePicker;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -78,16 +79,19 @@ use app\models\ContactForm;
 
     public function actionTest(){
 
-        $cache = \Yii::$app->cache;
+        Image::thumbnail('@webroot/images/test.JPG', 200, 100)
+            ->save(\Yii::getAlias('@webroot/images/small/smallTest.JPG'));
+
+        //$cache = \Yii::$app->cache;
         //$cache->flush(); - очистка кеша, использовать один раз и комментить снова
 
-        $key = 'number';
+        /*$key = 'number';
 
         if(!$number = $cache->get($key)){
             $number = rand();
             $cache->set($key, $number, 5);
         }
-        echo $number;
+        echo $number;*/
 
         //$model = new Test();
         //$model->on(Test::EVENT_TEST, [new MyComponent(), 'calculate']);
