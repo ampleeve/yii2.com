@@ -15,8 +15,9 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use yii\web\UploadedFile;
 
- class SiteController extends Controller{
+class SiteController extends Controller{
 
      //public $layout = 'custom';
 
@@ -79,8 +80,20 @@ use app\models\ContactForm;
 
     public function actionTest(){
 
-        Image::thumbnail('@webroot/images/test.JPG', 200, 100)
-            ->save(\Yii::getAlias('@webroot/images/small/smallTest.JPG'));
+       /* $model = new Test();
+
+        if(\Yii::$app->request->isPost){
+            $model->content = UploadedFile::getInstance($model,'content');
+            $model->content->
+            //$file->saveAs('@webroot/images');
+        }
+
+        return $this->render('test',[
+           'model' => $model
+        ]);*/ // вывели форму с возможностью загрузки файлов в конце седьмого урока, но не доделали - также есть код во вьюхе тестовой закоменчен
+
+        //Image::thumbnail('@webroot/images/test.JPG', 200, 100)
+          //  ->save(\Yii::getAlias('@webroot/images/small/smallTest.JPG')); // - преобразование изображения
 
         //$cache = \Yii::$app->cache;
         //$cache->flush(); - очистка кеша, использовать один раз и комментить снова

@@ -19,11 +19,16 @@ use yii\base\Model;
         ];
      }
 
+     //public function save(){ // набросок по сохранению файла из формы (пытались в конце 7 урока предпоследним кейсом после алиасов)
+       //  $this->content->save
+     //}
+
      public function rules(){
 
          return [
 
-             [['title', 'content', 'date'], 'required']
+             [['title', 'content', 'date'], 'required'],
+             [['content'], 'file', 'extensions' => 'png, jpg']
          ];
      }
 

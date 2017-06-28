@@ -21,11 +21,15 @@ use yii\helpers\Html;
     $form = ActiveForm::begin([
 
         'id' => 'testForm',
+        'options' => ['enctype' => 'multipart/form-data']
 
     ]);
 
     echo $form->field($model, 'title')->textInput();
-    echo $form->field($model, 'content')->textInput();
+    echo $form->field($model, 'content')->fileInput([
+        'multiple' => true,
+        'accept' => 'img/*'
+    ]);
     echo $form->field($model, 'date')->widget(\yii\jui\DatePicker::className(),[
         'dateFormat' => 'dd-MM-yyyy',
         'language' => 'ru'
