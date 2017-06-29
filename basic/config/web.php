@@ -3,6 +3,7 @@
 $params = require(__DIR__ . '/params.php');
 
 $config = [
+    'language' => 'ru',
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
@@ -13,6 +14,15 @@ $config = [
         ],
     ],
     'components' => [
+        'i18n' =>[
+            'translations' => [
+                'msg*'=>[
+                    'class' => \yii\i18n\PhpMessageSource::class,
+                    'basePath' => '@app/messages',
+                    'sourceLanguage' => 'ru-RU'
+                ]
+            ]
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'XK-zgByTgnA6DGquU-5GOr0o1_9h2VVx',

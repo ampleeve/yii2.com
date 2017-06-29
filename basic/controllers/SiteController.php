@@ -80,6 +80,10 @@ class SiteController extends Controller{
 
     public function actionTest(){
 
+        Yii::$app->language = 'en-US';
+        //var_dump(\Yii::$app->language);die();
+        echo \Yii::t('msg', 'error', ['code' => 404]);
+
        /* $model = new Test();
 
         if(\Yii::$app->request->isPost){
