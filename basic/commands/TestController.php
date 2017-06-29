@@ -18,7 +18,7 @@ class TestController extends Controller {
         echo 'This is test controller'. "\n";
     }
 
-    public function findUser(){
+    public function actionFindUser(){
         $model = Customer::findOne(1);
         var_dump($model);
     }
