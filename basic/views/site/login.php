@@ -41,6 +41,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php ActiveForm::end(); ?>
 
     <div class="col-lg-offset-1" style="color:#999;">
-        Or you may <a href="?r=site/registration">sign up.</a>
+        Or you may <a href="site/registration">sign up.</a>
     </div>
 </div>
